@@ -196,13 +196,13 @@ Bun is a fast all-in-one JavaScript runtime like Node.js, with a built-in packag
 
 ### 1.Install Bun
 
-Open your terminal and run the following command to install Bun:
+Open your powershell and run the following command to install Bun:
 
 ```bash
-curl -fsSL https://bun.sh/install | bash
+powershell -c "irm bun.sh/install.ps1|iex"
 ```
 
-This script will download and install Bun on your system. Follow any on-screen instructions.
+This script will download and install Bun on your windows system. Follow any on-screen instructions.
 
 ### 2.Install Dependencies
 
