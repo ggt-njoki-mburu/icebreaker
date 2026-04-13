@@ -13,7 +13,7 @@ Every time a standup kicks off with an icebreaker powered by your own product, y
 - That's real ownership.
 - That's real impact.
 
-And by the way, in the past, everyone has been answering same icebreaker question, with this app, each member can answer their own icebreaker question(s), how powerful is that.
+And by the way, in the past, everyone has been answering the same icebreaker question, with this app, each member can answer their own icebreaker question(s), how powerful is that.
 
 ## Technical Scope and Constraints
 
@@ -65,13 +65,13 @@ You are free to define and design your own categories as long as there are at le
 
 When a user clicks on a category, they should be redirected to the page below.
 
-## Category Page - Icebrekers Viewer
+## Category Page - Icebreakers Viewer
 
 The Category Page displays the icebreakers for a selected category.
 
 The layout should include:
 
-- A **Back Button** positioned to the top-left corner, clicking on this button must return the user to the homepage (category selection page)..
+- A **Back Button** positioned to the top-left corner, clicking on this button must return the user to the homepage (category selection page).
 - A clear category title at the top e.g., "Would You Rather... Icebreakers"
 - A central card display area
 - Navigation controls ("Previous" and "Next") at the bottom.
@@ -112,7 +112,7 @@ Users should be able to navigate between the icebreaker cards in two ways:
 
 - Should the icebreakers be randomized each time a category is opened, so the experience feels fresh and unpredictable?
 - Should each card movement trigger a subtle "card click" sound effect?
-- [Optional] should there be a shuffle button within a category? Instead of randomizing the entry, maybe users can reshuffle the deck at anytime.
+- [Optional] should there be a shuffle button within a category? Instead of randomizing the entry, maybe users can reshuffle the deck at any time.
 
 # Project Setup
 
@@ -188,4 +188,73 @@ export default defineConfig([
     },
   },
 ])
+```
+
+# Project Setup
+
+## How to Setup Bun as Package Manager
+
+Bun is a fast all-in-one JavaScript runtime like Node.js, with a built-in package manager. Follow these steps to install and start using Bun on your machine:
+
+### 1.Install Bun
+
+Open your terminal and run the following command to install Bun:
+
+```bash
+curl -fsSL https://bun.sh/install | bash
+```
+
+This script will download and install Bun on your system. Follow any on-screen instructions.
+
+### 2.Install Dependencies
+
+To install dependencies, use:
+
+```bash
+bun install
+```
+
+or to add a specific package:
+
+```bash
+bun add package-name
+```
+
+### 3.Run Development Server
+
+Use your existing scripts or create new ones to start your dev server, e.g.,
+
+```bash
+bun run dev
+```
+
+---
+
+You are now ready to build and develop your Icebreaker App using Bun as your package manager!
+
+## 4.How to Use DaisyUI Components
+
+[DaisyUI](https://daisyui.com/) is a plugin for Tailwind CSS that provides ready-to-use styled components.
+
+### 5.Use DaisyUI Components
+
+Now, you can use DaisyUI components in your React components by applying the provided classes, e.g., buttons, cards, modals, etc.:
+
+```jsx
+<button className="btn btn-primary">Click me</button>
+```
+
+### 6.Build and Run
+
+Start your development server:
+
+```bash
+bun run dev
+```
+
+and enjoy using DaisyUI components styled seamlessly with Tailwind CSS!
+
+---
+
+Feel free to customize and extend your setup as needed for your Icebreaker App!
 ```
