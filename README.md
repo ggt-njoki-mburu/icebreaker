@@ -255,4 +255,3 @@ and enjoy using DaisyUI components styled seamlessly with Tailwind CSS!
 ---
 
 Feel free to customize and extend your setup as needed for your Icebreaker App!
-```
