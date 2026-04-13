@@ -190,8 +190,6 @@ export default defineConfig([
 ])
 ```
 
-# Project Setup
-
 ## How to Setup Bun as Package Manager
 
 Bun is a fast all-in-one JavaScript runtime like Node.js, with a built-in package manager. Follow these steps to install and start using Bun on your machine:
