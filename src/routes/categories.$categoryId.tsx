@@ -8,6 +8,7 @@ export const Route = createFileRoute("/categories/$categoryId")({
     const [currentIndex, setCurrentIndex] = useState(0);
     const icebreakers = getIcebreakersByCategory(categoryId);
     const currentIcebreaker = icebreakers[currentIndex];
+
     const handleNext = () => {
       if (currentIndex < icebreakers.length - 1) {
         setCurrentIndex(currentIndex + 1);
@@ -19,39 +20,51 @@ export const Route = createFileRoute("/categories/$categoryId")({
         setCurrentIndex(currentIndex - 1);
       }
     };
+
     return (
-      <div className="category-page">
-        <div className="header">
-          <Link to="/" className="back-button">
-            ← Back to Categories
-          </Link>
-          <h1>{categoryId.toUpperCase()} Icebreakers</h1>
-          <div className="counter">
-            {currentIndex + 1} / {icebreakers.length}
-          </div>
-        </div>
+      <div className="min-h-screen bg-base-200 py-8 px-4">
+        <div className="max-w-3xl mx-auto">
+          {/* Header */}
+          <div className="flex justify-between items-center mb-8 flex-wrap gap-4">
+            <Link to="/" className="btn btn-ghost gap-2">
+              ← Back
+            </Link>
 
-        <div className="card-container">
-          <div className="icebreaker-card">
-            <p>{currentIcebreaker}</p>
-          </div>
-        </div>
+            <h1 className="text-2xl md:text-3xl font-bold text-base-content">
+              {categoryId.charAt(0).toUpperCase() + categoryId.slice(1)}{" "}
+              Icebreakers
+            </h1>
 
-        <div className="navigation">
-          <button
-            onClick={handlePrevious}
-            disabled={currentIndex === 0}
-            className="nav-button"
-          >
-            ← Previous
-          </button>
-          <button
-            onClick={handleNext}
-            disabled={currentIndex === icebreakers.length - 1}
-            className="nav-button"
-          >
-            Next →
-          </button>
+            <div className="badge badge-primary badge-lg">
+              {currentIndex + 1} / {icebreakers.length}
+            </div>
+          </div>
+
+          <div className="card bg-base-100 shadow-xl">
+            <div className="card-body p-8 md:p-12 min-h-[400px] justify-center">
+              <p className="text-xl md:text-2xl text-center leading-relaxed">
+                {currentIcebreaker}
+              </p>
+            </div>
+          </div>
+
+          <div className="flex justify-center gap-4 mt-8">
+            <button
+              onClick={handlePrevious}
+              disabled={currentIndex === 0}
+              className="btn btn-primary gap-2"
+            >
+              ← Previous
+            </button>
+
+            <button
+              onClick={handleNext}
+              disabled={currentIndex === icebreakers.length - 1}
+              className="btn btn-primary gap-2"
+            >
+              Next →
+            </button>
+          </div>
         </div>
       </div>
     );
