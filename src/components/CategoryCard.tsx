@@ -25,6 +25,7 @@ export function CategoryCard({ category }: CategoryCardProps) {
             ease-[cubic-bezier(.25,.46,.45,.94)]
             hover:scale-101
             "
+            data-cy="category-card"
       >
         <div className="card-body">
           <h2 className="card-title text-lg md:text-2xl">{category.name}</h2>
