@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { getIcebreakersByCategory } from "../data/icebreakers";
+import { CategoryView } from "../components/CategoryView";
 
 export const Route = createFileRoute("/categories/$categoryId")({
   component: function CategoryPage() {
@@ -8,6 +9,10 @@ export const Route = createFileRoute("/categories/$categoryId")({
     const [currentIndex, setCurrentIndex] = useState(0);
     const icebreakers = getIcebreakersByCategory(categoryId);
     const currentIcebreaker = icebreakers[currentIndex];
+    const nextIcebreaker =
+      currentIndex < icebreakers.length - 1
+        ? icebreakers[currentIndex + 1]
+        : null;
 
     const handleNext = () => {
       if (currentIndex < icebreakers.length - 1) {
@@ -21,31 +26,47 @@ export const Route = createFileRoute("/categories/$categoryId")({
       }
     };
 
+    const handleRandom = () => {
+      const randomIndex = Math.floor(Math.random() * icebreakers.length);
+      setCurrentIndex(randomIndex);
+    };
+
     return (
       <div className="min-h-screen bg-base-200 py-8 px-4">
         <div className="max-w-3xl mx-auto">
-          {/* Header */}
           <div className="flex justify-between items-center mb-8 flex-wrap gap-4">
-            <Link to="/" className="btn btn-ghost gap-2">
-              ← Back
+            <Link
+              to="/"
+              className="group inline-flex items-center gap-2 px-4 py-2 bg-white/80 dark:bg-base-100 hover:bg-white dark:hover:bg-base-200 rounded-lg shadow-sm hover:shadow-md transition-all duration-200 text-base-content/70 hover:text-base-content border border-base-200 dark:border-base-700"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5 group-hover:-translate-x-0.5 transition-transform duration-200"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M10 19l-7-7m0 0l7-7m-7 7h18"
+                />
+              </svg>
+              <span className="font-medium">Back to Home</span>
             </Link>
-
-            <h1 className="text-2xl md:text-3xl font-bold text-base-content">
-              {categoryId.charAt(0).toUpperCase() + categoryId.slice(1)}{" "}
-              Icebreakers
-            </h1>
-
-            <div className="badge badge-primary badge-lg">
-              {currentIndex + 1} / {icebreakers.length}
-            </div>
           </div>
 
           <div className="card bg-base-100 shadow-xl">
-            <div className="card-body p-8 md:p-12 min-h-[400px] justify-center">
-              <p className="text-xl md:text-2xl text-center leading-relaxed">
-                {currentIcebreaker}
-              </p>
-            </div>
+            <CategoryView
+              title={categoryId.charAt(0).toUpperCase() + categoryId.slice(1)}
+              currentQuestion={currentIcebreaker}
+              nextQuestion={nextIcebreaker}
+              onNext={handleNext}
+              onPrevious={handlePrevious}
+              currentIndex={currentIndex}
+              totalQuestions={icebreakers.length}
+            />
           </div>
 
           <div className="flex justify-center gap-4 mt-8">
@@ -57,6 +78,9 @@ export const Route = createFileRoute("/categories/$categoryId")({
               ← Previous
             </button>
 
+            <button onClick={handleRandom} className="btn btn-secondary gap-2">
+              🎲 Random
+            </button>
             <button
               onClick={handleNext}
               disabled={currentIndex === icebreakers.length - 1}
