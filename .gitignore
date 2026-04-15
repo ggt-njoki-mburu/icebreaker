@@ -24,10 +24,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-<<<<<<< HEAD
 pnpm-lock.yaml
-=======
 
 *storybook.log
 storybook-static
->>>>>>> ecdb03e65822c244f048a830e8789732e4eb751f
