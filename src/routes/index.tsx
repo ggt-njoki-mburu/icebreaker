@@ -5,7 +5,7 @@ import { CategoryCard } from "../components/CategoryCard";
 export const Route = createFileRoute("/")({
   component: function HomePage() {
     return (
-      <div className="min-h-screen bg-base-200 py-12 px-4">
+      <div className="min-h-screen bg-base-200 py-6 px-4">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-bold text-base-content mb-3">
