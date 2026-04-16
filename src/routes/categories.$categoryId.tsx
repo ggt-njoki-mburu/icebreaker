@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { getIcebreakersByCategory } from "../data/icebreakers";
 import { CategoryView } from "../components/CategoryView";
