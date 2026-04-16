@@ -26,5 +26,7 @@ dist-ssr
 *.sw?
 pnpm-lock.yaml
 
+bun.lock
+
 *storybook.log
 storybook-static

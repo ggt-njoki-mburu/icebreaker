@@ -29,7 +29,7 @@ export const Default: Story = {
     args: {
         category: {
             id: '1',
-            title: 'Category 1',
+            name: 'Category 1',
             questions: []
         }
     }
