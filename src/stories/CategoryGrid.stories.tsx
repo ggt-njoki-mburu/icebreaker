@@ -34,7 +34,7 @@ export const Empty: Story = {
 export const SingleCategory: Story = {
     args: {
         categories: [
-            { id: '1', title: 'Science', questions: [] },
+            { id: '1', name: 'Science', questions: [] },
         ],
     },
 };
@@ -42,9 +42,9 @@ export const SingleCategory: Story = {
 export const FewCategories: Story = {
     args: {
         categories: [
-            { id: '1', title: 'Science', questions: [] },
-            { id: '2', title: 'History', questions: [] },
-            { id: '3', title: 'Geography', questions: [] },
+            { id: '1', name: 'Science', questions: [] },
+            { id: '2', name: 'History', questions: [] },
+            { id: '3', name: 'Geography', questions: [] },
         ],
     },
 };
@@ -52,21 +52,21 @@ export const FewCategories: Story = {
 export const FullGrid: Story = {
     args: {
         categories: [
-            { id: '1',  title: 'Science',        questions: [] },
-            { id: '2',  title: 'History',         questions: [] },
-            { id: '3',  title: 'Geography',       questions: [] },
-            { id: '4',  title: 'Mathematics',     questions: [] },
-            { id: '5',  title: 'Literature',      questions: [] },
-            { id: '6',  title: 'Technology',      questions: [] },
-            { id: '7',  title: 'Art',             questions: [] },
-            { id: '8',  title: 'Music',           questions: [] },
-            { id: '9',  title: 'Philosophy',      questions: [] },
-            { id: '10', title: 'Economics',       questions: [] },
-            { id: '11', title: 'Biology',         questions: [] },
-            { id: '12', title: 'Chemistry',       questions: [] },
-            { id: '13', title: 'Physics',         questions: [] },
-            { id: '14', title: 'Psychology',      questions: [] },
-            { id: '15', title: 'Political Science', questions: [] },
+            { id: '1',  name: 'Science',        questions: [] },
+            { id: '2',  name: 'History',         questions: [] },
+            { id: '3',  name: 'Geography',       questions: [] },
+            { id: '4',  name: 'Mathematics',     questions: [] },
+            { id: '5',  name: 'Literature',      questions: [] },
+            { id: '6',  name: 'Technology',      questions: [] },
+            { id: '7',  name: 'Art',             questions: [] },
+            { id: '8',  name: 'Music',           questions: [] },
+            { id: '9',  name: 'Philosophy',      questions: [] },
+            { id: '10', name: 'Economics',       questions: [] },
+            { id: '11', name: 'Biology',         questions: [] },
+            { id: '12', name: 'Chemistry',       questions: [] },
+            { id: '13', name: 'Physics',         questions: [] },
+            { id: '14', name: 'Psychology',      questions: [] },
+            { id: '15', name: 'Political Science', questions: [] },
         ],
     },
 };
