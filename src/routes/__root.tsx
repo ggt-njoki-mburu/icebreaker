@@ -1,6 +1,5 @@
 import { createRootRoute, Outlet } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
-import { Moon, Sun } from "lucide-react";
 
 export const Route = createRootRoute({
   component: () => (
