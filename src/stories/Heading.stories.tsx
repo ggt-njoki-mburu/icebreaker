@@ -42,6 +42,10 @@ export const H6: Story = {
 };
 
 export const AllLevels: Story = {
+    // added args **required** to prevent Storybook from reusing the default args and rendering only H1
+  args: {
+    level: 1,
+  },
     render: () => (
         <div className="flex flex-col gap-4">
             <Heading level={1}>H1 — The quick brown fox</Heading>
