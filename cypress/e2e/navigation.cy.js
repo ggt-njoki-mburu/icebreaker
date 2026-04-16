@@ -14,16 +14,26 @@ describe('Icebreaker', () => {
 cy.wait(1500);
 
   cy.get('[data-cy="category-card"]').first().click();
-  cy.wait(2000);
+  
 
-  cy.contains('Next').click();
-  cy.wait(1500);
+  
 
-  cy.contains('Previous').click();
-  cy.wait(1500);
+
+
+cy.get('[data-cy="next-question"]')
+  .should('be.visible')
+  .click();
+
+
+
+cy.get('[data-cy="previous-question"]')
+  .should('be.visible')
+  .click();
+
+  
 
   cy.contains('Back').click();
-  cy.wait(1500);
+  
 
   cy.url().should('include','localhost:5173')
 

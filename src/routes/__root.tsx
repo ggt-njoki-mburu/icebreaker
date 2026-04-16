@@ -3,8 +3,8 @@ import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 
 export const Route = createRootRoute({
   component: () => (
-    <>
-      <div className="fixed top-4 right-4 z-50">
+    <div className="min-h-screen flex flex-col">
+      <div className="flex justify-end p-2">
         <input
           type="checkbox"
           value="synthwave"
@@ -14,6 +14,6 @@ export const Route = createRootRoute({
 
       <Outlet />
       <TanStackRouterDevtools />
-    </>
+    </div>
   ),
 });
