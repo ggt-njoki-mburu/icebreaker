@@ -2,7 +2,7 @@ import { Heading } from "./Heading";
 import { Link } from "@tanstack/react-router";
 import { NextBtn } from "./NextBtn";
 import { PreviousBtn } from "./PreviousBtn";
-import { HomeIcon } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { DndContext, type DragEndEvent } from "@dnd-kit/core";
 import DraggableCard from "./DraggableCard";
 import { RandomBtn } from "./RandomBtn";
@@ -57,8 +57,8 @@ export const CategoryView: React.FC<CategoryViewProps> = ({
             className="tooltip tooltip-bottom"
             data-tip="Go back to categories"
           >
-            <Link to="/" className="btn btn-circle">
-              <HomeIcon />
+            <Link to="/" className="btn btn-ghost btn-soft">
+              <ArrowLeft /> Go Back Home
             </Link>
           </div>
           <Heading level={1}>"{title}" IceBreakers</Heading>

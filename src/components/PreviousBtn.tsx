@@ -3,18 +3,20 @@ import { ArrowRight } from "lucide-react";
 
 interface PreviousBtnProps {
   onPrevious: () => void;
-  disabled?: boolean;
+  disabled: boolean;
 }
 
 export const PreviousBtn: React.FC<PreviousBtnProps> = ({
   onPrevious,
-  disabled,
+  disabled = false,
 }) => {
   return (
     <div className="tooltip" data-tip="Previous question">
       <motion.button
+        data-cy="previous-question"   // ✅ ADD THIS LINE
+        aria-label="Previous question"
+        className="btn btn-primary btn-circle btn-soft"
         onClick={onPrevious}
-        className="btn btn-secondary btn-circle btn-soft"
         disabled={disabled}
         whileHover={{ scale: 1.08 }}
         whileTap={{ scale: [1, 0.92, 1.02] }}
