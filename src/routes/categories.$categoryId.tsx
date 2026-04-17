@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { categories, getIcebreakersByCategory } from "../data/icebreakers";
+import { getIcebreakersByCategory } from "../data/icebreakers";
 import { CategoryView } from "../components/CategoryView";
 
 export const Route = createFileRoute("/categories/$categoryId")({
@@ -14,8 +14,8 @@ export const Route = createFileRoute("/categories/$categoryId")({
     const previousIcebreaker =
       currentIndex > 0 ? icebreakers[currentIndex - 1] : null;
 
-    const currentColor =
-      categories.find((c) => c.id === categoryId)?.color ?? "";
+    // const currentColor =
+    //   categories.find((c) => c.id === categoryId)?.color ?? "";
 
     const handleNext = () => {
       setCurrentIndex(currentIndex + 1);
