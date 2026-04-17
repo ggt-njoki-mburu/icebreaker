@@ -18,6 +18,8 @@ interface CategoryViewProps {
   onNext: () => void;
   onPrevious: () => void;
   onRandom: () => void;
+  cardBgColor: string | null;
+  cardTextColor: string | null;
 }
 
 export const CategoryView: React.FC<CategoryViewProps> = ({
@@ -29,6 +31,8 @@ export const CategoryView: React.FC<CategoryViewProps> = ({
   currentIndex,
   totalQuestions,
   onRandom,
+  cardBgColor,
+  cardTextColor,
 }) => {
   const handleDragEnd = (event: DragEndEvent) => {
     const { active, over } = event;
@@ -49,6 +53,9 @@ export const CategoryView: React.FC<CategoryViewProps> = ({
     }
   };
 
+  const bgColor = cardBgColor ? cardBgColor : "hsl(var(--p))";
+  const textColor = cardTextColor ? cardTextColor : "hsl(var(--pc))";
+
   return (
     <DndContext onDragEnd={handleDragEnd}>
       <div className="w-full flex flex-col items-center">
@@ -62,7 +69,7 @@ export const CategoryView: React.FC<CategoryViewProps> = ({
             </Link>
           </div>
           <Heading level={1}>"{title}" IceBreakers</Heading>
-          <div className="badge badge-accent">
+          <div className="badge badge-accent flex-shrink-0 whitespace-nowrap">
             {currentIndex >= 0 && currentIndex < totalQuestions
               ? currentIndex + 1
               : "--"}{" "}
@@ -79,8 +86,17 @@ export const CategoryView: React.FC<CategoryViewProps> = ({
                     animate={{ rotate: 0, y: 0, opacity: 1 }}
                     transition={{ duration: 0.5 }}
                   >
-                    <div className="card bg-secondary text-secondary-content text-center shadow-sm border border-base-content h-full">
-                      <div className="card-body flex items-center justify-center font-semibold text-lg">
+                    <div
+                      className="card text-center shadow-sm border border-base-content h-full"
+                      style={{
+                        backgroundColor: bgColor,
+                        opacity: 0.7,
+                      }}
+                    >
+                      <div
+                        className="card-body flex items-center justify-center font-semibold text-lg"
+                        style={{ color: textColor }}
+                      >
                         {previousQuestion}
                       </div>
                     </div>
@@ -90,7 +106,10 @@ export const CategoryView: React.FC<CategoryViewProps> = ({
                     animate={{ rotate: -5, y: 0, opacity: 1 }}
                     transition={{ duration: 0.5, delay: 0.1 }}
                   >
-                    <div className="card bg-secondary/80 text-center shadow-sm border border-base-content/50 h-full">
+                    <div
+                      className="card text-center shadow-sm border border-base-content/50 h-full"
+                      style={{ backgroundColor: bgColor, opacity: 0.5 }}
+                    >
                       <div className="card-body"></div>
                     </div>
                   </motion.div>
@@ -99,7 +118,10 @@ export const CategoryView: React.FC<CategoryViewProps> = ({
                     animate={{ rotate: -10, y: 0, opacity: 1 }}
                     transition={{ duration: 0.5, delay: 0.2 }}
                   >
-                    <div className="card bg-secondary/60 text-center shadow-sm border border-base-content/30 h-full">
+                    <div
+                      className="card text-center shadow-sm border border-base-content/30 h-full"
+                      style={{ backgroundColor: bgColor, opacity: 0.3 }}
+                    >
                       <div className="card-body"></div>
                     </div>
                   </motion.div>
@@ -112,6 +134,7 @@ export const CategoryView: React.FC<CategoryViewProps> = ({
                 facing="start"
                 droppableId="previousQuestionEmptyStack"
                 enabled={currentIndex === 0}
+                bgColor={bgColor}
               />
             </div>
           )}
@@ -125,8 +148,8 @@ export const CategoryView: React.FC<CategoryViewProps> = ({
                 <DraggableCard
                   id="current-question"
                   content={currentQuestion}
-                  bgColor="bg-primary"
-                  textColor="text-primary-content"
+                  bgColor={bgColor}
+                  textColor={textColor}
                   className="w-full"
                 />
               </motion.div>
@@ -135,7 +158,10 @@ export const CategoryView: React.FC<CategoryViewProps> = ({
                 animate={{ rotate: 5, y: 0, opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
               >
-                <div className="card bg-primary/80 text-center shadow-sm h-full border border-base-content/50">
+                <div
+                  className={`card text-center shadow-sm h-full border border-base-content/50`}
+                  style={{ backgroundColor: bgColor, opacity: 0.8 }}
+                >
                   <div className="card-body"></div>
                 </div>
               </motion.div>
@@ -144,14 +170,17 @@ export const CategoryView: React.FC<CategoryViewProps> = ({
                 animate={{ rotate: 10, y: 0, opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
               >
-                <div className="card bg-primary/60 text-center shadow-sm h-full border border-base-content/30">
+                <div
+                  className={`card text-center shadow-sm h-full border border-base-content/30`}
+                  style={{ backgroundColor: bgColor, opacity: 0.6 }}
+                >
                   <div className="card-body"></div>
                 </div>
               </motion.div>
             </div>
           ) : (
             <div className="order-1 md:order-2">
-              <EmptyStack facing="end" />
+              <EmptyStack facing="end" bgColor={bgColor} />
             </div>
           )}
         </div>
@@ -169,32 +198,56 @@ type EmptyStackProps = {
   droppableId?: string;
   facing: "start" | "end";
   enabled?: boolean;
+  bgColor: string;
 };
 
-const EmptyStack = ({ facing, enabled, droppableId }: EmptyStackProps) => {
+const EmptyStack = ({
+  facing,
+  enabled,
+  droppableId,
+  bgColor,
+}: EmptyStackProps) => {
   return enabled && droppableId ? (
     <DroppableStack id={droppableId}>
       <div className={`stack stack-${facing} size-64`}>
-        <div className="border-base-content card bg-primary/20 border border-dashed text-center">
+        <div
+          className="border-base-content card border border-dashed text-center"
+          style={{ backgroundColor: bgColor, opacity: 0.2 }}
+        >
           <div className="card-body"></div>
         </div>
-        <div className="border-base-content card bg-primary/20 border border-dashed text-center">
+        <div
+          className="border-base-content card border border-dashed text-center"
+          style={{ backgroundColor: bgColor, opacity: 0.2 }}
+        >
           <div className="card-body"></div>
         </div>
-        <div className="border-base-content card bg-primary/20 border border-dashed text-center">
+        <div
+          className="border-base-content card border border-dashed text-center"
+          style={{ backgroundColor: bgColor, opacity: 0.2 }}
+        >
           <div className="card-body"></div>
         </div>
       </div>
     </DroppableStack>
   ) : (
     <div className={`stack stack-${facing} size-64`}>
-      <div className="border-base-content card bg-primary/20 border border-dashed text-center">
+      <div
+        className="border-base-content card border border-dashed text-center"
+        style={{ backgroundColor: bgColor, opacity: 0.2 }}
+      >
         <div className="card-body"></div>
       </div>
-      <div className="border-base-content card bg-primary/20 border border-dashed text-center">
+      <div
+        className="border-base-content card border border-dashed text-center"
+        style={{ backgroundColor: bgColor, opacity: 0.2 }}
+      >
         <div className="card-body"></div>
       </div>
-      <div className="border-base-content card bg-primary/20 border border-dashed text-center">
+      <div
+        className="border-base-content card border border-dashed text-center"
+        style={{ backgroundColor: bgColor, opacity: 0.2 }}
+      >
         <div className="card-body"></div>
       </div>
     </div>

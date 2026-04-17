@@ -13,6 +13,8 @@ export const NextBtn: React.FC<NextBtnProps> = ({
   return (
     <div className="tooltip" data-tip="Next question">
       <motion.button
+        data-cy="next-question"
+        aria-label="Next question"
         className="btn btn-primary btn-circle btn-soft"
         onClick={onNext}
         disabled={disabled}
@@ -25,3 +27,4 @@ export const NextBtn: React.FC<NextBtnProps> = ({
     </div>
   );
 };
+``

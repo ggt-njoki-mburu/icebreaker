@@ -48,10 +48,12 @@ export default function DraggableCard({
       }}
     >
       <div
-        className={`card ${bgColor} shadow-sm h-full border border-base-content ${isOver ? "opacity-50" : "opacity-100"}`}
+        className={`card shadow-sm h-full border border-base-content ${isOver ? "opacity-50" : "opacity-100"}`}
+        style={{ backgroundColor: bgColor }}
       >
         <div
-          className={`card-body flex items-center justify-center ${textColor} font-semibold text-lg`}
+          className={`card-body flex items-center justify-center font-semibold text-lg`}
+          style={{ color: textColor }}
         >
           {content}
         </div>
