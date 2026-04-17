@@ -41,6 +41,8 @@ export const Default: Story = {
     currentIndex: 0,
     totalQuestions: 5,
     onRandom: () => alert("Random clicked"),
+    cardBgColor: null,
+    cardTextColor: null,
   },
 };
 
@@ -54,6 +56,8 @@ export const FirstQuestion: Story = {
     currentIndex: 0,
     totalQuestions: 3,
     onRandom: () => alert("Random clicked"),
+    cardBgColor: null,
+    cardTextColor: null,
   },
 };
 
@@ -67,5 +71,7 @@ export const LastQuestion: Story = {
     currentIndex: 4,
     totalQuestions: 5,
     onRandom: () => alert("Random clicked"),
+    cardBgColor: null,
+    cardTextColor: null,
   },
 };
